@@ -1,0 +1,8 @@
+kagglehub[hf-datasets]
+datasets
+torch
+torchvision
+Pillow
+jupyter
+matplotlib
+scikit-learn

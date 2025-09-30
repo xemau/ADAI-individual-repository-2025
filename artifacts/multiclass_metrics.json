@@ -1,0 +1,18 @@
+{
+  "label_names": [
+    "AK",
+    "BCC",
+    "BKL",
+    "DF",
+    "MEL",
+    "NV",
+    "SCC",
+    "VASC"
+  ],
+  "accuracy": 0.9377526273241714,
+  "recall_macro": 0.9255645431954983,
+  "auroc_macro_ovr": 0.9980264074028743,
+  "epochs": 15,
+  "batch_size": 64,
+  "lr": 0.001
+}

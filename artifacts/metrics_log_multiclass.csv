@@ -1,0 +1,2 @@
+timestamp,run_name,accuracy,recall_macro,auroc_macro_ovr,epochs,batch_size,lr
+2025-09-30T00:26:17,multiclass_resnet18_tta15e,0.9377526273241714,0.9255645431954983,0.9980264074028743,15,64,0.001
