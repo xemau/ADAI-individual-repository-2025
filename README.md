@@ -7,16 +7,6 @@
 
 ---
 
-## Case Study: Diagnosis of Skin Cancer  
-
-**Situation**  
-You work for an innovative medical technology company that focuses on improving the diagnosis of skin cancer. The company has established a project that utilises Convolutional Neural Networks (CNNs) to analyse skin images and classify suspicious lesions. The goal is to develop a model that supports doctors in the early detection of skin cancer, which is crucial for successful treatment outcomes.  
-
-**Problem Statement**  
-The team is facing several challenges in developing the CNN model. The accuracy of the classification is inconsistent, and there are concerns about the interpretation of the results. Additionally, there is a need for a deeper understanding of the limitations of the techniques used and the impact of the dataset on the model's performance.  
-
----
-
 # Learning Outcomes  
 
 ## Learning Outcome 1: Evaluate machine learning and neural network concepts  
@@ -28,13 +18,23 @@ Before starting the project, I had some theoretical understanding of machine lea
 
 | Week | Activities | Evidence |
 |------|------------|----------|
-| 3    | Implemented and trained a CNN model for skin lesion classification. Experimented with different hyperparameters to understand their effect on model performance. | [`src/train.py`](src/train.py) demonstrates the model training pipeline including architecture definition, loss calculation, and optimization steps. |
-| 4    | Extended experiments: binary classification with medical metrics (accuracy, recall, AUROC) and TTA; checkpoint-based results reproduction; multi-class ResNet18 training and validation; side-by-side comparison of binary vs. multi-class. | [`notebooks/05_binary_classification.ipynb`](notebooks/05_binary_classification.ipynb), [`notebooks/05_result_binary_classification.ipynb`](notebooks/05_result_binary_classification.ipynb), [`notebooks/06_multi_class_classification.ipynb`](notebooks/06_multi_class_classification.ipynb), [`notebooks/07_comparison_binary_multiclass.ipynb`](notebooks/07_comparison_binary_multiclass.ipynb), plots in `artifacts/plots/`, metrics in `artifacts/binary_metrics.json` and `artifacts/multiclass_metrics.json` |
-| 5    | Performed dataset evaluation including age, diagnosis, localization, malignancy, and sex distribution analyses; created plots and summary tables. | [`evaluation.md`](evaluation.md) with plots in `artifacts/plots/` |
+| 3    | Implemented and trained a CNN model for skin lesion classification. Experimented with different hyperparameters to understand their effect on model performance. | [`src/train.py`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/src/train.py) demonstrates the model training pipeline including architecture definition, loss calculation, and optimization steps. |
+| 3    | Explored the BCN20000 dataset annotations, including class labels and metadata. Applied preprocessing steps to handle missing or incorrect annotations. | [`notebooks/01_data_exploration.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/01_data_exploration.ipynb) explores dataset and annotation distribution. [`notebooks/02_preprocessing.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/02_preprocessing.ipynb) implements preprocessing and cleaning of annotated data. |
+| 3    | Trained a baseline SimpleCNN on the BCN20000 skin lesion dataset with an end-to-end training loop (loss, optimizer, evaluation). Investigated the impact of basic hyperparameters such as learning rate, batch size, and number of epochs on model performance. | [`notebooks/03_model_training.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/03_model_training.ipynb) shows the full SimpleCNN training pipeline, including metrics and learning curves used as a baseline for later experiments. |
+| 3    | Implemented transfer learning by fine-tuning a pretrained CNN on the skin lesion dataset. Compared training from scratch versus transfer learning to evaluate benefits. | [`notebooks/04_convolution_experiment.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/04_convolution_experiment.ipynb) experiments with convolution filter sizes and analyzes training curves and performance metrics. |
+| 4    | Extended experiments: binary classification with medical metrics (accuracy, recall, AUROC) and TTA; checkpoint-based results reproduction; multi-class ResNet18 training and validation; side-by-side comparison of binary vs. multi-class. | [`notebooks/05_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_binary_classification.ipynb), [`notebooks/05_result_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_result_binary_classification.ipynb), [`notebooks/06_multi_class_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/06_multi_class_classification.ipynb), [`notebooks/07_comparison_binary_multiclass.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/07_comparison_binary_multiclass.ipynb), plots in [artifacts/plots/](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts), metrics in [artifacts/binary_metrics.json](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts/binary_metrics.json) and [artifacts/multiclass_metrics.json](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts/multiclass_metrics.json) |
+| 4    | Constructed benign/malignant mapping from diagnosis labels and validated class balance; selected screening-appropriate metrics; analyzed calibration and threshold effects to relate predictions back to annotation quality. | Mapping and metrics in [`notebooks/05_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_binary_classification.ipynb); calibration and threshold plots from [`notebooks/05_result_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_result_binary_classification.ipynb) saved to [artifacts/plots/](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts) |
+| 4    | Fine-tuned pretrained ResNet18 for binary and multi-class tasks; applied validation-time TTA; compared transfer-learned models against earlier baseline. | [`notebooks/05_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_binary_classification.ipynb), [`notebooks/06_multi_class_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/06_multi_class_classification.ipynb), comparison in [`notebooks/07_comparison_binary_multiclass.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/07_comparison_binary_multiclass.ipynb); model builder in [`src/utils/models_utils.py`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/src/utils/models_utils.py) |
+| 5    | Performed dataset evaluation including age, diagnosis, localization, malignancy, and sex distribution analyses; created plots and summary tables. | [`evaluation.md`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/evaluation.md) with plots in [artifacts/plots/](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts) |
 
-**Reflection**  
-- What went well: I developed a solid understanding of how neural network components interact and influence learning.  
-- What was difficult: Grasping the impact of hyperparameter choices on convergence and generalization required iterative experimentation.  
+
+**Reflection (Weekly)**  
+
+| Week | What went well | What was difficult | How to improve |
+|------|----------------|--------------------|----------------|
+| 3    | Gained hands-on experience training CNNs on real medical image data and saw the full pipeline from data loading to evaluation working end-to-end. | Understanding the effect of different hyperparameters and architectures on convergence and generalization was challenging and often unintuitive. | Design smaller, controlled experiments and track results more systematically to build intuition about which changes matter most. |
+| 4    | Extended the approach to binary and multi-class setups and successfully used transfer learning and TTA to improve validation performance. | Balancing complexity (pretrained models, TTA, more metrics) with training time and reproducibility required careful orchestration of code and experiments. | Automate more of the experiment configuration, logging, and comparison so that results across models and runs are easier to interpret and reproduce. |
+| 5    | Consolidated understanding of the dataset by linking model performance back to class balance, demographics, and localization distributions. | Interpreting how dataset biases and imbalances might impact model behavior in edge cases was non-trivial. | Incorporate dataset diagnostics earlier in the workflow and plan additional targeted experiments for underrepresented groups or classes. |
 
 **Grading Level (Self-Assessment)**  
 Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
@@ -54,19 +54,17 @@ I was aware of the importance of data annotation in learning but had limited exp
 
 | Week | Activities | Evidence |
 |------|------------|----------|
-| 3    | Explored the BCN20000 dataset annotations, including class labels and metadata. Applied preprocessing steps to handle missing or incorrect annotations. | [`notebooks/01_data_exploration.ipynb`](notebooks/01_data_exploration.ipynb) explores dataset and annotation distribution. [`notebooks/02_preprocessing.ipynb`](notebooks/02_preprocessing.ipynb) implements preprocessing and cleaning of annotated data. |
-| 4    | Constructed benign/malignant mapping from diagnosis labels and validated class balance; selected screening-appropriate metrics; analyzed calibration and threshold effects to relate predictions back to annotation quality. | Mapping and metrics in [`notebooks/05_binary_classification.ipynb`](notebooks/05_binary_classification.ipynb); calibration and threshold plots from [`notebooks/05_result_binary_classification.ipynb`](notebooks/05_result_binary_classification.ipynb) saved to `artifacts/plots/` |
-| 5    | Evaluated annotation balance and representativeness through dataset distribution analysis; assessed implications of class imbalance on annotation strategies. | [`evaluation.md`](evaluation.md), supporting plots in `artifacts/plots/` |
 
-**Reflection**  
-- What went well: I learned to critically assess annotation quality and its implications for model training.  
-- What was difficult: Identifying and resolving annotation errors required careful data inspection and domain knowledge.  
+**Reflection (Weekly)**  
+
+| Week | What went well | What was difficult | How to improve |
+|------|----------------|--------------------|----------------|
 
 **Grading Level (Self-Assessment)**  
-Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
+**Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)** 
 Orienting – You are beginning to address this Learning Outcome (5)  
 Beginning – You have made some progress towards this Learning Outcome (6)  
-**Proficient – You have made substantial progress and are competent in this Learning Outcome (8)**
+Proficient – You have made substantial progress and are competent in this Learning Outcome (8)
 Advanced – You have fully mastered this Learning Outcome (10)  
 
 ---
@@ -80,16 +78,16 @@ I had basic knowledge of Large Language Models (LLMs) and their architectures bu
 
 | Week | Activities | Evidence |
 |------|------------|----------|
-| 3    | Studied foundational concepts and architectures of LLMs through literature review and tutorials. Compared LLM principles with CNNs used in image analysis to understand modality-specific model designs. | [`docs/LLM_concepts_summary.md`](docs/LLM_concepts_summary.md) summarizes key properties and challenges of LLMs. [`notebooks/03_model_training.ipynb`](notebooks/03_model_training.ipynb) demonstrates training a SimpleCNN and evaluating results, providing a comparison to LLM concepts. |
 
-**Reflection**  
-- What went well: I developed a conceptual framework for understanding LLM capabilities and limitations.  
-- What was difficult: Relating LLM concepts to practical applications required synthesizing diverse sources of information.  
+**Reflection (Weekly)**  
+
+| Week | What went well | What was difficult | How to improve |
+|------|----------------|--------------------|----------------|
 
 **Grading Level (Self-Assessment)**  
-Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
+**Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)**  
 Orienting – You are beginning to address this Learning Outcome (5)  
-**Beginning – You have made some progress towards this Learning Outcome (6)**
+Beginning – You have made some progress towards this Learning Outcome (6)
 Proficient – You have made substantial progress and are competent in this Learning Outcome (8)  
 Advanced – You have fully mastered this Learning Outcome (10)  
 
@@ -104,18 +102,16 @@ I was aware that transfer learning can improve model performance but had limited
 
 | Week | Activities | Evidence |
 |------|------------|----------|
-| 3    | Implemented transfer learning by fine-tuning a pretrained CNN on the skin lesion dataset. Compared training from scratch versus transfer learning to evaluate benefits. | [`notebooks/04_convolution_experiment.ipynb`](notebooks/04_convolution_experiment.ipynb) experiments with convolution filter sizes and analyzes training curves and performance metrics. |
-| 4    | Fine-tuned pretrained ResNet18 for binary and multi-class tasks; applied validation-time TTA; compared transfer-learned models against earlier baseline. | [`notebooks/05_binary_classification.ipynb`](notebooks/05_binary_classification.ipynb), [`notebooks/06_multi_class_classification.ipynb`](notebooks/06_multi_class_classification.ipynb), comparison in [`notebooks/07_comparison_binary_multiclass.ipynb`](notebooks/07_comparison_binary_multiclass.ipynb); model builder in [`src/utils/models_utils.py`](src/utils/models_utils.py) |
 
 **Reflection**  
 - What went well: Transfer learning significantly improved model convergence speed and accuracy.  
 - What was difficult: Selecting which layers to freeze and adapt required experimentation and understanding of model internals.  
 
 **Grading Level (Self-Assessment)**  
-Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
+**Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)**  
 Orienting – You are beginning to address this Learning Outcome (5)  
 Beginning – You have made some progress towards this Learning Outcome (6)  
-**Proficient – You have made substantial progress and are competent in this Learning Outcome (8)**  
+Proficient – You have made substantial progress and are competent in this Learning Outcome (8) 
 Advanced – You have fully mastered this Learning Outcome (10)  
 
 ---
@@ -130,12 +126,16 @@ I had strong prior experience with version control (Git/GitHub), but limited pra
 | Week | Activities | Evidence |
 |------|------------|----------|
 | 3    | Maintained a structured GitHub repository with clear commit messages and organized code. Produced comprehensive documentation and reports summarizing methodology, results, and reflections. | Project repository at https://github.com/xemau/ADAI-individual-repository-2025 demonstrates professional code management. This README and accompanying Jupyter notebooks provide clear communication of project outcomes. |
-| 4    | Refactored shared code into reusable utilities; standardized artifact logging and plotting; produced reproducible evaluation notebooks for binary and multi-class; updated portfolio evidence. | Utilities in [`src/utils/`](src/utils/); notebooks [`05_binary_classification.ipynb`](notebooks/05_binary_classification.ipynb), [`05_result_binary_classification.ipynb`](notebooks/05_result_binary_classification.ipynb), [`06_multi_class_classification.ipynb`](notebooks/06_multi_class_classification.ipynb), [`07_comparison_binary_multiclass.ipynb`](notebooks/07_comparison_binary_multiclass.ipynb); logs in `artifacts/metrics_log.csv` and `artifacts/metrics_log_multiclass.csv` |
-| 5    | Documented dataset evaluation systematically in markdown with evidence links and summary table; maintained professional reporting standards. | [`evaluation.md`](evaluation.md), repository updates with plots in `artifacts/plots/` |
+| 4    | Refactored shared code into reusable utilities; standardized artifact logging and plotting; produced reproducible evaluation notebooks for binary and multi-class; updated portfolio evidence. | Utilities in [`src/utils/`](src/utils/); notebooks [`05_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_binary_classification.ipynb), [`05_result_binary_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/05_result_binary_classification.ipynb), [`06_multi_class_classification.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/06_multi_class_classification.ipynb), [`07_comparison_binary_multiclass.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/notebooks/07_comparison_binary_multiclass.ipynb); logs in [artifacts/metrics_log.csv](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts/metrics_log.csv) and [artifacts/metrics_log_multiclass.csv](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts/metrics_log_multiclass.csv) |
+| 5    | Documented dataset evaluation systematically in markdown with evidence links and summary table; maintained professional reporting standards. | [`evaluation.md`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/evaluation.md), repository updates with plots in [artifacts/plots/](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/01_cnn_assignment/artifacts) |
 
-**Reflection**  
-- What went well: Consistent documentation and code organization improved project reproducibility and clarity.  
-- What was difficult: Balancing detail and conciseness in reporting required iterative refinement.  
+**Reflection (Weekly)**  
+
+| Week | What went well | What was difficult | How to improve |
+|------|----------------|--------------------|----------------|
+| 3    | Maintained a clear repository structure with meaningful commits and kept notebooks and code in sync with the evolving experiments. | Ensuring that all important decisions and rationale were captured in the documentation while still moving the project forward was demanding. | Write shorter but more frequent notes during development and reserve time at the end of each week to clean up and consolidate documentation. |
+| 4    | Refactored code into reusable utilities and standardized logging and plotting, which made later experiments easier to run and compare. | Deciding where to draw the line between “good enough” engineering and over-engineering in a time-boxed academic project was not always obvious. | Define simple internal standards for utilities, logging, and structure at the start of the project and stick to them unless there is a strong reason to deviate. |
+| 5    | Produced structured evaluation notes and visual evidence (plots, tables) that clearly support the portfolio and presentation. | Summarizing many experiments and insights into concise, readable artifacts without losing important nuance took several iterations. | Start drafting evaluation notes in parallel with experiments, and incrementally refine them rather than writing everything at the end. |
 
 **Grading Level (Self-Assessment)**  
 Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
