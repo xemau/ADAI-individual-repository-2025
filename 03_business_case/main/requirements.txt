@@ -1,0 +1,7 @@
+google-genai
+torch
+torchvision
+Pillow
+jupyter
+matplotlib
+scikit-learn
