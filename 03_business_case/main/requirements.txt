@@ -1,4 +1,7 @@
 google-genai
+Prophet
+plotly
+statsmodels
 torch
 torchvision
 Pillow
