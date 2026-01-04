@@ -78,25 +78,31 @@ I had basic knowledge of Large Language Models (LLMs) and their architectures bu
 
 | Week | Activities | Evidence |
 |------|------------|----------|
+| 10    | Analysed the AMI case study to understand when Large Language Models are inappropriate for numerical time-series forecasting and why classical models are preferred as the core forecasting engine. Identified the need for a hybrid architecture where LLMs sit on top of time-series models. | [`03_business_case/main/artifacts/forecasting_report.md`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/03_business_case/main/artifacts/forecasting_report.md) documents the role and limitations of LLMs in the demand forecasting context. |
+| 11    | Implemented Prophet and SARIMAX time-series models as a forecasting backbone and used their outputs (forecasts, confidence intervals, backtest metrics) as inputs for an LLM insight layer concept. Evaluated how LLMs can complement, but not replace, the statistical models. | [`03_business_case/main/notebooks/02_prophet_forecasting.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/03_business_case/main/notebooks/02_prophet_forecasting.ipynb), [`03_business_case/main/notebooks/03_sarimax_forecasting.ipynb`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/03_business_case/main/notebooks/03_sarimax_forecasting.ipynb), and metrics/forecasts in [`03_business_case/main/artifacts`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/03_business_case/main/artifacts) underpin the comparison. |
+| 13   | Designed and documented a hybrid forecasting architecture where LLMs generate natural-language explanations and recommendations based on time-series forecasts and uncertainties. Summarised recommendations for the company, including when and how to deploy LLMs safely. | [`03_business_case/main/artifacts/forecasting_report.md`](https://github.com/xemau/ADAI-individual-repository-2025/tree/main/03_business_case/main/artifacts/forecasting_report.md) includes the final narrative and recommendations about LLM usage in the AMI forecasting solution. |
 
 **Reflection (Weekly)**  
 
 | Week | What went well | What was difficult | How to improve |
 |------|----------------|--------------------|----------------|
+| 10   | Our group aligned on how to interpret the AMI case and split the work so that each person could focus on specific aspects (models, report structure, LLM role). Individually, I gained a clear understanding of why LLMs are not suitable as primary time-series forecasters. | Working only from a written assignment without any direct stakeholder interaction made it harder to judge how much detail and technical depth was actually needed. Translating the case into concrete technical requirements required a lot of reading and thought. | In future, a short clarification session with stakeholders (if available) or, at minimum, agree as a group on a concise “problem statement” before diving into implementation and analysis. |
+| 11   | I implemented Prophet and SARIMAX independently, but the group exchanged ideas and sanity-checked assumptions informally. This helped to keep the modelling direction roughly aligned even though we worked mostly individually. | Coordinating modelling decisions without a strict shared design was challenging. Mostly due to communication and holidays. | Introduce a minimal “modelling spec” at the start (what horizon, which metrics, how to split train/test) so that individually developed models remain comparable and easier to combine in a group report. |
+| 13   | I contributed to a written proposal where we recommended a hybrid architecture (time-series models + LLM insight layer) instead of trying to build an app in three weeks. The focus on proposed solutions rather than incomplete implementation made the outcome more realistic. | Justifying recommendations without an actual running system or stakeholder feedback felt abstract at times. It was not always clear how our proposed solution would be received in a real organisational context. | In similar short assignments, I would still try to create at least a very small technical demo or experiment (even if not production-ready).. |
+
 
 **Grading Level (Self-Assessment)**  
-**Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)**  
+Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)  
 Orienting – You are beginning to address this Learning Outcome (5)  
 Beginning – You have made some progress towards this Learning Outcome (6)
-Proficient – You have made substantial progress and are competent in this Learning Outcome (8)  
-Advanced – You have fully mastered this Learning Outcome (10)  
+Proficient – You have made substantial progress and are competent in this Learning Outcome (8)
+**Advanced – You have fully mastered this Learning Outcome (10)**
 
 ---
 
 ## Learning Outcome 4: Evaluate transfer learning principles  
 
 **Entry Level (Self-Assessment)**  
-I was aware that transfer learning can improve model performance but had limited hands-on experience applying pretrained models to new tasks.  
 
 **Performed Activities**
 
@@ -104,8 +110,8 @@ I was aware that transfer learning can improve model performance but had limited
 |------|------------|----------|
 
 **Reflection**  
-- What went well: Transfer learning significantly improved model convergence speed and accuracy.  
-- What was difficult: Selecting which layers to freeze and adapt required experimentation and understanding of model internals.  
+- What went well:
+- What was difficult: 
 
 **Grading Level (Self-Assessment)**  
 **Undefined – You have yet to start addressing this Learning Outcome (not passed, 4)**  
